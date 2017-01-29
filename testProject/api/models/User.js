@@ -9,22 +9,62 @@ var bcrypt = require('bcrypt');
 
 module.exports = {
     attributes: {
+
         email: {
             type: 'email',
             required: true,
             unique: true
-        },
+            },
+
+
         password: {
             type: 'string',
             minLength: 6,
             required: true
         },
+
+        nom: {
+                    type: 'string',
+                    required: true,
+                    unique: true
+                },
+
+        prenom: {
+                    type: 'string',
+                    required: true,
+                    unique: true
+                                },
+
+
+        ville: {
+                    type: 'string',
+                    required: true,
+                    unique: true
+                },
+
+         code_postal: {
+                    type: 'string',
+                    minLength: 5,
+                    required: true,
+                    unique: true
+                         },
+
+
+
+
+        adresses: {
+                collection: 'adress',
+                via: 'owner'
+        },
+
+
         toJSON: function() {
             var obj = this.toObject();
             delete obj.password;
             return obj;
         }
     },
+
     beforeCreate: function(user, cb) {
         bcrypt.genSalt(10, function(err, salt) {
             bcrypt.hash(user.password, salt, function(err, hash) {

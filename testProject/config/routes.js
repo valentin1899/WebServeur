@@ -40,7 +40,10 @@ module.exports.routes = {
   'get /moncompte': {
     controller: 'UserController',
     action: 'moncompte'
-  }
+  },
+
+
+
 
 
   /***************************************************************************

@@ -16,9 +16,13 @@ module.exports = {
       };
      //return res.view("moncompte");
 
+     data.user = req.user;
+
+
      console.log(req.user);
 
      return res.view("moncompte", data);
+
 
       }
 };
