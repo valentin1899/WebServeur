@@ -24,7 +24,8 @@ setTimeout(function sunrise () {
 
            <h1>Informations visible de votre compte :</h1>
                 <br />
-                <i> Adresse mail: </i> <%= user.email %> <br>
+
+         <i> Adresse mail : </i> <%= user.email %> <br>
                 <i> Nom : </i> <%= user.nom %> <br>
                 <i> Prénom : </i> <%= user.prenom %> <br>
                 <i> Ville : </i> <%= user.ville %> <br>
@@ -67,11 +68,19 @@ setTimeout(function sunrise () {
                          <br>
 
    <br>
+
+
    <br>
 
           <p style="text-align: center;"><input type="submit" value="Valider"></p>
 
          </form>
+
+         <form action="/moncompte/uploadavatar" enctype="multipart/form-data" method="post">
+
+             <input type="file" name="avatar" multiple="multiple"><br>
+             <input type="submit" value="Upload">
+             </form>
 
       </ul>
     </div>

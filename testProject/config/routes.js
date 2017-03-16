@@ -42,6 +42,10 @@ module.exports.routes = {
     action: 'moncompte'
   },
 
+  'post /moncompte/uploadavatar': {
+    controller: 'UserController',
+    action: 'uploadavatar'
+  },
 
 
 
