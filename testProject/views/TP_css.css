@@ -1,0 +1,46 @@
+body {
+
+font-family : Calibri;
+background : white;
+margin : 50 px; 
+background-size:cover;
+
+}   
+
+a:link{
+text-decoration : none;
+}
+
+header {
+text-align : center; 
+font-size : 70;
+color : #0099FF; 
+}
+
+
+h1 {
+	color : "black";
+	font-size : 50px; 
+	font-family : Avantgarde, sans-serif;
+}
+
+
+p{
+	font-size : 20 px;
+	font-family : Arial;
+}
+
+
+h2 {
+color : #0000FF ; 
+font-size : 30px; 
+}
+
+
+
+
+a:hover /* Apparence au survol des liens */
+{
+   color: #CCFF33;
+}
+

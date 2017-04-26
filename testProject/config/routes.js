@@ -47,6 +47,10 @@ module.exports.routes = {
     action: 'uploadavatar'
   },
 
+  'get /participant':{
+     view : 'participant'
+  }
+
 
 
 
