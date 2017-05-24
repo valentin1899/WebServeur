@@ -1,41 +1,52 @@
-/*var x = document.getElementById("color"); 
-x.addEventListener ("click", initSelection, false);
-
-var s = document.getElementById("colorbackground"); 
-s.addEventListener ("clickbackground", selection, false);
-*/
-
-var color = null;
-var colorBackground = null;
-
-function initSelection(evt){
-	document.body.addEventListener("click", selection2, false);
-}
 
 
-function selection (evt){
-	var t = evt.target;
-	if (t.style.backgroundColor != "red"){
-		t.style.backgroundColor = "red";
-	}
-	else if (t.style.backgroundColor != "unset")
-		t.style.backgroundColor = "unset";
-}  
+var xhr = null;
 
-function selection2(evt) {
-  if (!document.getElementById("frameInsert").contains(evt.target)) {
-    var element = evt.target;
-    if (color != element)
-      colorBackground = element.style.backgroundColor;
-    element.style.backgroundColor = "blue";
-    if (color != null)
-      color.style.backgroundColor = colorBackground;
-    color = element;
-    insertB(element);
+function initXhr(){
+  if(window.XMLHttpRequest){
+    xhr = new XMLHttpRequest();
+  }
+  else if(window.ActiveXObject){
+  xhr = new ActiveXObject("Microsoft.XMLHTTP");
+  }
+  else{
+  console.log("Votre navigateur ne supporte pas XMLHTPRESUEST");
   }
 }
 
-function insertB(target) {
-  var s = document.getElementById("toInsert");
-  target.before(s.value);
+initXhr();
+
+xhr.onreadystatechange = function(){ 
+  if(xhr.readyState == 4 && xhr.status == 200){ 
+    maCallback(xhr.responseText);  
+  }
+};
+
+function maCallback(response){ 
+
+  var h1 = document.createElement('h1'); 
+  h1.appendChild(document.createTextNode(response)) 
+  document.body.appendChild(h1); 
+}
+
+function pageLoaded(){
+  document.getElementById("req_GET").addEventListener("click", sendReq1);
+  document.getElementById("req_POST").addEventListener("click", sendReq2);
+  
+
+}
+
+function sendReq1(){
+  xhr.open('get', "index_GET.php?mavar=valeur", true);
+  xhr.send(null);
+}
+function sendReq2(){
+  xhr.open('post', "index_POST.php", true);
+  xhr.setRequestHeader('Content-Type', "application/x-www-form-urlencoded");
+  xhr.send("mavar="+document.getElementById("btn_post").value); 
+}
+
+function selectionRss(address){
+  chr.open('get',address, true);
+  xhr.send(null);
 }
